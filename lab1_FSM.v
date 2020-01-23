@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module fsm ( input clk, rst, fifty, dollar, cancel, 
 			output reg insert_coin, money_return, dispense, output reg [1:0] st);
 
@@ -43,6 +45,7 @@ module fsm ( input clk, rst, fifty, dollar, cancel,
 						insert_coin = 1'b0;
 						money_return = 1'b1;
 						//dispense = 1'b0;
+						nst = INIT;
 					end
 			endcase
 		end
