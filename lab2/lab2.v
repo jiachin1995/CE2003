@@ -24,14 +24,13 @@ module fsm ( input clk, rst, write_en, save_data, show_reg,
 				data_reg <= 0;
 			else if (save_data)
 				data_reg  <= d_in;
+				
+			if (write_en) ramdata[addr] <= data_reg;
 		end
 				
 	always @ *
 		begin
-			if (write_en) ramdata[addr] <= data_reg;
-			
 			if (show_reg) d_out <= ramdata[addr];
-			else d_out <= data_reg;
-			
+			else d_out <= data_reg;	
 		end
 endmodule
